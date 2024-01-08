@@ -1,4 +1,4 @@
-+ Number {
++ Object {
 
 	rtsanitise {
 

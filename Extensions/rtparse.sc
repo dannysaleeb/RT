@@ -1,4 +1,4 @@
-+ Number {
++ Object {
 
 	rtparse {
 		arg beat_dur, stored=0, rtn_arr=[], topLevel=true;
@@ -33,6 +33,7 @@
 								stored != 0,
 								{
 									rtn_arr = rtn_arr.add(stored);
+									// add note_arr =
 									stored = beat_dur;
 								},
 								{

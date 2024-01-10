@@ -1,5 +1,7 @@
 + Number {
 
+	// so currently probability and change_factor decide whether or not to divide
+
 	rtgenerate {
 
 		arg divisions=[2,3], probability=0.5, probability_change_factor=0.8, depth=2, noteon=false, topLevel=true;
@@ -21,6 +23,7 @@
 				{
 					//else if 2nd coin toss true, add 1
 					if (
+						// same prob for 1
 						probability.coin,
 						{
 							rtn_arr = rtn_arr.add(1);

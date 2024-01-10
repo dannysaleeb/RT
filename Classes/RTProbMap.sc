@@ -1,10 +1,8 @@
 RTProbMap {
 	var <probs, <change_factors;
 
-	// I think I need this to take all of these values, but then just hold them in a dictionary, so they can easily be updated -- start_probs, and start_change_factors ... for div, one, zero and continuation
-
 	*new {
-		arg div, div_change, zero, zero_change, one, one_change, cont, cont_change;
+		arg div=1, div_change=1, zero=1, zero_change=1, one=1, one_change=1, cont=1, cont_change=1;
 		var probs, change_factors;
 
 		probs = Dictionary.newFrom([\div, div, \one, one, \zero, zero, \cont, cont]);
@@ -14,6 +12,12 @@ RTProbMap {
 	}
 
 	update {
-		// implement
+		probs.keysValuesChange({
+			arg k, v;
+			if (
+				(v * change_factors[k]) < 1,
+				{ v * change_factors[k] }, { v }
+			)
+		})
 	}
 }

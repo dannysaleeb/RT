@@ -6,8 +6,15 @@
 		var rtn_arr = [];
 
 		this.do({
+
+			// make sure probability map is set to correct values from top level
+			if(
+				topLevel == true,
+				{ prob_map.reset }
+			);
+
 			if (
-				// if true, divide
+				// check whether to divide this beat if depth limit not reached
 				(prob_map.probs[0].coin) && (depth > 0),
 				{
 					var recursion_result = divisions.choose.rtgenerate(divisions, prob_map.update, depth-1, noteon, false);

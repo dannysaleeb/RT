@@ -85,9 +85,9 @@
 					},
 					{
 						if (
-							probability == 0, { ^rtn },
+							prob_map.probs[0] == 0, { ^rtn },
 							{
-								^this.rtgenerate(divisions, probability, probability_change_factor, depth, noteon, topLevel)
+								^this.rtgenerate(divisions, prob_map, depth, noteon, topLevel)
 							}
 						)
 					}

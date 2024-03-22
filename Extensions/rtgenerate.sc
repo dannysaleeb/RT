@@ -1,13 +1,9 @@
 + Number {
 
-	// so currently probability and change_factor decide whether or not to divide
-
 	rtgenerate {
 
 		arg divisions=[2,3], prob_map=RTProbMap.new(), depth=2, noteon=false, topLevel=true;
 		var rtn_arr = [];
-
-		// why doesn't this function do the process for the number given?
 
 		this.do({
 			if (

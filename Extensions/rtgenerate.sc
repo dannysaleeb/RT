@@ -8,7 +8,7 @@
 		this.do({
 			if (
 				// if true, divide
-				(prob_map.probs[\div].coin) && (depth > 0),
+				(prob_map.probs[0].coin) && (depth > 0),
 				{
 					var recursion_result = divisions.choose.rtgenerate(divisions, prob_map.update, depth-1, noteon, false);
 
@@ -17,10 +17,7 @@
 
 				},
 				{
-					var choice = [1, -1, 0].wchoose([prob_map.probs[\one], prob_map.probs[\cont], prob_map.probs[\zero]].normalizeSum);
-
-					prob_map.probs.postln;
-					choice.postln;
+					var choice = [1, -1, 0].wchoose([prob_map.probs[1], prob_map.probs[2], prob_map.probs[3]].normalizeSum);
 
 					switch(
 						choice,
@@ -35,7 +32,7 @@
 									rtn_arr = rtn_arr.add(choice)
 								},
 								{
-									var outcome = [1, 0].wchoose([prob_map.probs[\one], prob_map.probs[\zero]].normalizeSum);
+									var outcome = [1, 0].wchoose([prob_map.probs[1], prob_map.probs[3]].normalizeSum);
 									rtn_arr = rtn_arr.add(outcome);
 									if (outcome == 1, { noteon = true })
 								}

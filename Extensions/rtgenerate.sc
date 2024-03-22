@@ -58,27 +58,14 @@
 		if (
 			topLevel == true,
 			{
-				var rtn = rtn_arr.rtsanitise;
-				if (
-					// check not single rest or undivided note
-					rtn.isKindOf(SequenceableCollection),
-					{
-						^rtn
-					},
-					{
-						if (
-							(prob_map.probs[0] == 0) && (rtn == 1), { ^rtn },
-							{
-								^this.rtgenerate(divisions, prob_map, depth, noteon, topLevel)
-							}
-						)
-					}
-				)
+				^rtn_arr.rtsanitise
 			},
 			{
-				^[rtn_arr, noteon]
+				^[rtn_arr.rtsanitise, noteon]
 			}
 		)
 	}
 
 }
+
+// I'm trying to avoid having a beat eliminated ... so basically, if it evaluates to zero, return this...

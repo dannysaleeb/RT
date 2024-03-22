@@ -51,31 +51,6 @@
 							noteon = false;
 						}
 					)
-
-					/*//else if 2nd coin toss true, add 1
-					if (
-						// same prob for 1
-						prob_map.probs[\one].coin,
-						{
-							rtn_arr = rtn_arr.add(1);
-							noteon = true;
-						},
-						// else if 3rd coin toss true and noteon is true
-						{
-							if (
-								(prob_map.probs[\cont].coin) && (noteon == true),
-								{
-									// add continuation -1
-									rtn_arr = rtn_arr.add(-1)
-								},
-								{
-									// else add 0
-									rtn_arr = rtn_arr.add(0);
-									noteon = false
-								}
-							)
-						}
-					)*/
 				}
 			)
 		});
@@ -92,7 +67,7 @@
 					},
 					{
 						if (
-							prob_map.probs[0] == 0, { ^rtn },
+							(prob_map.probs[0] == 0) && (rtn == 1), { ^rtn },
 							{
 								^this.rtgenerate(divisions, prob_map, depth, noteon, topLevel)
 							}

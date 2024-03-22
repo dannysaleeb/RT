@@ -51,31 +51,6 @@
 							noteon = false;
 						}
 					)
-
-					/*//else if 2nd coin toss true, add 1
-					if (
-						// same prob for 1
-						prob_map.probs[\one].coin,
-						{
-							rtn_arr = rtn_arr.add(1);
-							noteon = true;
-						},
-						// else if 3rd coin toss true and noteon is true
-						{
-							if (
-								(prob_map.probs[\cont].coin) && (noteon == true),
-								{
-									// add continuation -1
-									rtn_arr = rtn_arr.add(-1)
-								},
-								{
-									// else add 0
-									rtn_arr = rtn_arr.add(0);
-									noteon = false
-								}
-							)
-						}
-					)*/
 				}
 			)
 		});
@@ -83,27 +58,14 @@
 		if (
 			topLevel == true,
 			{
-				var rtn = rtn_arr.rtsanitise;
-				if (
-					// check not single rest or undivided note
-					rtn.isKindOf(SequenceableCollection),
-					{
-						^rtn
-					},
-					{
-						if (
-							prob_map.probs[0] == 0, { ^rtn },
-							{
-								^this.rtgenerate(divisions, prob_map, depth, noteon, topLevel)
-							}
-						)
-					}
-				)
+				^rtn_arr.rtsanitise
 			},
 			{
-				^[rtn_arr, noteon]
+				^[rtn_arr.rtsanitise, noteon]
 			}
 		)
 	}
 
 }
+
+// I'm trying to avoid having a beat eliminated ... so basically, if it evaluates to zero, return this...

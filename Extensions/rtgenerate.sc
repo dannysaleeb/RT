@@ -49,7 +49,22 @@
 		if (
 			topLevel == true,
 			{
-				^rtn_arr.rtsanitise
+				var rtn = rtn_arr.rtsanitise;
+				if (
+					// check not single rest or undivided note
+					rtn.isKindOf(SequenceableCollection),
+					{
+						^rtn
+					},
+					{
+						if (
+							probability == 0, { ^rtn },
+							{
+								^this.rtgenerate(divisions, probability, probability_change_factor, depth, noteon, topLevel)
+							}
+						)
+					}
+				)
 			},
 			{
 				^[rtn_arr, noteon]
